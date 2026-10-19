@@ -207,22 +207,6 @@
     titleEl.textContent = cleanTitle;
     titleWrap.appendChild(titleEl);
 
-    const metaNote = document.createElement('div');
-    metaNote.className = 'card-meta-note';
-
-    // SVG icon for note
-    metaNote.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="16" x2="12" y2="12"></line>
-        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-      </svg>
-    `;
-    const noteText = document.createElement('span');
-    noteText.textContent = hasValidUrl ? '以紙載文 · 鏡像互動展區' : '展位保留 · 籌備中';
-    metaNote.appendChild(noteText);
-    titleWrap.appendChild(metaNote);
-
     content.appendChild(titleWrap);
 
     // 3. Card Action Button / Link
