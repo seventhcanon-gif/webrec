@@ -439,6 +439,7 @@
         try {
           const fallbackData = JSON.parse(fallbackEl.textContent.trim());
           if (Array.isArray(fallbackData) && fallbackData.length > 0) {
+            hideError();
             handleLoadedData(fallbackData);
             return;
           }
