@@ -365,6 +365,7 @@ body {
    Error Banner
    -------------------------------------------------------------------------- */
 .alert-banner {
+  display: none;
   margin: 0 auto 2rem;
   max-width: 860px;
   width: 100%;
@@ -373,10 +374,13 @@ body {
   border: 1px solid rgba(239, 68, 68, 0.35);
   border-radius: var(--radius-md);
   backdrop-filter: blur(15px);
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.alert-banner.show {
+  display: flex !important;
 }
 
 .alert-content {

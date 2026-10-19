@@ -370,6 +370,8 @@
   function showError(message) {
     DOM.errorMessage.textContent = message || '無法載入展覽資料，請確認網路連線或稍後再試。';
     DOM.errorBanner.hidden = false;
+    DOM.errorBanner.classList.add('show');
+    DOM.errorBanner.style.setProperty('display', 'flex', 'important');
     DOM.counterText.textContent = '載入失敗';
   }
 
@@ -378,6 +380,8 @@
    */
   function hideError() {
     DOM.errorBanner.hidden = true;
+    DOM.errorBanner.classList.remove('show');
+    DOM.errorBanner.style.setProperty('display', 'none', 'important');
   }
 
   /**
