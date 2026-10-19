@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fdf2f8"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#831843" stroke-width="0.5" stroke-opacity="0.12"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#831843" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#831843" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Tint and Paper Texture -->
+  <rect width="800" height="480" fill="url(#bgGrad)"/>
+  <rect width="800" height="480" fill="url(#grid)"/>
+  <circle cx="400" cy="240" r="280" fill="url(#glow)"/>
+
+  <!-- Museum Outer Decorative Border -->
+  <rect x="24" y="24" width="752" height="432" rx="12" fill="none" stroke="#831843" stroke-width="1.5" stroke-opacity="0.2"/>
+  <rect x="32" y="32" width="736" height="416" rx="8" fill="none" stroke="#831843" stroke-width="0.8" stroke-dasharray="6 4" stroke-opacity="0.25"/>
+
+  <!-- Corner Traditional Geometric Accents -->
+  <path d="M 40 56 L 40 40 L 56 40" fill="none" stroke="#831843" stroke-width="2.5" stroke-opacity="0.6"/>
+  <path d="M 760 56 L 760 40 L 744 40" fill="none" stroke="#831843" stroke-width="2.5" stroke-opacity="0.6"/>
+  <path d="M 40 424 L 40 440 L 56 440" fill="none" stroke="#831843" stroke-width="2.5" stroke-opacity="0.6"/>
+  <path d="M 760 424 L 760 440 L 744 440" fill="none" stroke="#831843" stroke-width="2.5" stroke-opacity="0.6"/>
+
+  <!-- Large Watermark Seal Emblem in Background -->
+  <g transform="translate(560, 240)" stroke="#831843" stroke-opacity="0.08" fill="none" stroke-width="1.2">
+    <circle r="160"/>
+    <circle r="130" stroke-dasharray="5 5"/>
+    <circle r="95"/>
+    <polygon points="0,-110 110,0 0,110 -110,0"/>
+  </g>
+
+  <!-- Exhibit Badge -->
+  <g transform="translate(64, 76)">
+    <rect width="130" height="30" rx="15" fill="#831843" fill-opacity="0.08" stroke="#831843" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="65" y="19" font-family="'Noto Serif TC', serif" font-size="12" font-weight="bold" fill="#831843" text-anchor="middle" letter-spacing="1.5">EXHIBIT · 012</text>
+  </g>
+
+  <!-- Title & Typography -->
+  <text x="64" y="160" font-family="'Noto Serif TC', 'Songti TC', serif" font-size="34" font-weight="700" fill="#0f172a" letter-spacing="2">紅樓夢求生指南</text>
+  <text x="64" y="204" font-family="'Noto Sans TC', sans-serif" font-size="16" font-weight="400" fill="#475569" letter-spacing="1">一入賈府 · 互動式敘事與古典豪門生存機制</text>
+
+  <!-- Visual Divider Line -->
+  <line x1="64" y1="240" x2="520" y2="240" stroke="#831843" stroke-width="1.2" stroke-opacity="0.3"/>
+  <circle cx="64" cy="240" r="3.5" fill="#831843" fill-opacity="0.7"/>
+
+  <!-- Red Cultural Seal -->
+  <g transform="translate(64, 280)">
+    <rect width="210" height="44" rx="4" fill="#ffffff" stroke="#831843" stroke-width="1.8"/>
+    <rect x="3" y="3" width="204" height="38" rx="2" fill="none" stroke="#831843" stroke-width="0.6" stroke-opacity="0.4" stroke-dasharray="2 2"/>
+    <text x="105" y="28" font-family="'Noto Serif TC', serif" font-size="14" font-weight="600" fill="#831843" text-anchor="middle" letter-spacing="1.5">【 一入賈府 · 命運抉擇 】</text>
+  </g>
+
+  <!-- Curation Identity Tag -->
+  <text x="64" y="410" font-family="'Noto Serif TC', serif" font-size="13" fill="#64748b" letter-spacing="1.5">元智大學中國語文學系 112 級實務製作成果展 ·「鏡紙進行式」</text>
+</svg>

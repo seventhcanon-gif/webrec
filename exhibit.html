@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>展件詳情｜元智中語 112 級實務製作成果展「鏡紙進行式」</title>
+  
+  <meta name="description" content="元智大學中國語文學系 112 級實務製作成果展「鏡紙進行式」展件詳情介紹，深入各組文學與數位創意思維。">
+  <meta name="theme-color" content="#f8fafc">
+  
+  <!-- Preconnect to Google Fonts for elegant typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Decorative Lighting & Watermark Patterns -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+  <div class="page-bg-pattern" aria-hidden="true"></div>
+  
+  <div class="bg-watermark watermark-seal-top" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+      <circle cx="100" cy="100" r="95" stroke-dasharray="3 3"/>
+      <circle cx="100" cy="100" r="80"/>
+      <circle cx="100" cy="100" r="60"/>
+      <circle cx="100" cy="100" r="35"/>
+      <polygon points="100,20 180,100 100,180 20,100"/>
+      <polygon points="100,40 160,100 100,160 40,100"/>
+    </svg>
+  </div>
+  
+  <div class="bg-watermark watermark-seal-bottom" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+      <circle cx="100" cy="100" r="92"/>
+      <circle cx="100" cy="100" r="70" stroke-dasharray="4 4"/>
+      <circle cx="100" cy="100" r="48"/>
+      <line x1="100" y1="5" x2="100" y2="195"/>
+      <line x1="5" y1="100" x2="195" y2="100"/>
+      <line x1="33" y1="33" x2="167" y2="167"/>
+      <line x1="33" y1="167" x2="167" y2="33"/>
+    </svg>
+  </div>
+
+  <div class="page-container detail-page-container">
+    <!-- Top Navigation Bar -->
+    <header class="detail-header-bar">
+      <a href="index.html" class="nav-back-btn" aria-label="返回鏡紙展廳總覽">
+        <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>返回鏡紙展廳</span>
+      </a>
+
+      <div class="detail-brand-badge">
+        <span class="brand-pill">鏡紙進行式</span>
+        <span class="brand-sub">元智中語 112 級</span>
+      </div>
+    </header>
+
+    <!-- Error Banner if exhibit not found -->
+    <aside id="detailErrorBanner" class="error-banner" role="alert" hidden style="display: none !important;">
+      <div class="error-content">
+        <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span id="detailErrorMessage">未找到指定的展件資料。</span>
+      </div>
+      <a href="index.html" class="btn-retry">返回展廳首頁</a>
+    </aside>
+
+    <!-- Main Exhibit Content -->
+    <main id="exhibitMain" class="detail-main-layout">
+      <!-- Article Card -->
+      <article class="detail-article-card">
+        <!-- Exhibit Identification Meta -->
+        <div class="detail-meta-row">
+          <span id="detailBadge" class="detail-id-badge">EXHIBIT · 001</span>
+          <span class="detail-curation-tag">實務製作成果展</span>
+        </div>
+
+        <!-- Exhibit Title -->
+        <h1 id="detailTitle" class="detail-title">載入展件資料中...</h1>
+
+        <div class="detail-divider" aria-hidden="true">
+          <span class="divider-dot"></span>
+        </div>
+
+        <!-- Curatorial Overview (100-200 words) -->
+        <section class="detail-section detail-overview-section" aria-labelledby="overviewHeading">
+          <div class="section-title-wrap">
+            <span class="section-pretitle">CURATORIAL STATEMENT</span>
+            <h2 id="overviewHeading" class="section-title">【 策展導讀 · 作品脈絡 】</h2>
+          </div>
+          <div class="detail-desc-card">
+            <p id="detailDesc" class="detail-desc-text">
+              正在自策展典藏庫讀取作品理念與文字脈絡...
+            </p>
+          </div>
+        </section>
+
+        <!-- Content Images Gallery (1-2 Images) -->
+        <section class="detail-section detail-gallery-section" aria-labelledby="galleryHeading">
+          <div class="section-title-wrap">
+            <span class="section-pretitle">VISUAL ARCHIVE</span>
+            <h2 id="galleryHeading" class="section-title">【 展件圖錄 · 視覺紀實 】</h2>
+          </div>
+          <div id="detailGalleryGrid" class="detail-gallery-grid">
+            <!-- Dynamically populated images -->
+          </div>
+        </section>
+
+        <!-- External Website Action Launch Block -->
+        <section class="detail-section detail-action-section">
+          <div class="detail-action-card">
+            <div class="action-info">
+              <span class="action-caption">OFFICIAL PROJECT WEBSITE</span>
+              <h3 class="action-headline">啟程觀覽・步入正式展站</h3>
+              <p class="action-subtext">外部展站由各專題團隊獨立建置與設計，點擊下方按鈕將於新分頁開啟正式站點。</p>
+            </div>
+            
+            <a id="externalSiteBtn" href="#" target="_blank" rel="noopener noreferrer" class="detail-launch-btn">
+              <span>前往正式展站 ↗</span>
+              <svg class="launch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <div id="externalUrlHint" class="action-url-hint"></div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Bottom Prev / Next Exhibit Navigation -->
+      <nav class="detail-pagination-nav" aria-label="相鄰展件切換">
+        <a id="prevExhibitLink" href="#" class="nav-page-btn prev-btn">
+          <span class="page-nav-label">← 上一件</span>
+          <span id="prevExhibitName" class="page-nav-title">載入中...</span>
+        </a>
+        
+        <a href="index.html" class="nav-page-overview" title="返回全部展件">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>展廳總覽</span>
+        </a>
+
+        <a id="nextExhibitLink" href="#" class="nav-page-btn next-btn">
+          <span class="page-nav-label">下一件 →</span>
+          <span id="nextExhibitName" class="page-nav-title">載入中...</span>
+        </a>
+      </nav>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-title">元智大學中國語文學系 112 級實務製作成果展 ·「鏡紙進行式」</p>
+        <p class="footer-sub">以文字為紙，以科技為鏡 · 映照青春與文學進行式</p>
+        <div class="footer-meta">
+          <span>12 組精選成果</span>
+          <span class="footer-dot">•</span>
+          <span>純粹靜態架構</span>
+          <span class="footer-dot">•</span>
+          <span>© 2026 Department of Chinese Linguistics and Literature, YZU</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Shared Data Script for local file:// compatibility -->
+  <script src="exhibits-data.js"></script>
+  <!-- Detail Page Logic -->
+  <script src="exhibit.js"></script>
+</body>
+</html>

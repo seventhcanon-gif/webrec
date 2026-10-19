@@ -209,47 +209,37 @@
 
     content.appendChild(titleWrap);
 
-    // 3. Card Action Button / Link
+    // 3. Card Action Button / Link (Navigates to exhibit.html dedicated detail page)
     const actionWrap = document.createElement('div');
     actionWrap.className = 'card-action-wrap';
 
-    if (hasValidUrl) {
-      const link = document.createElement('a');
-      link.className = 'card-btn card-btn-active';
-      link.href = exhibit.url.trim();
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', `造訪展品：${cleanTitle}（新視窗開啟）`);
+    const exhibitId = exhibit.id || String(displayIndex + 1).padStart(3, '0');
+    const detailUrl = `exhibit.html?id=${encodeURIComponent(exhibitId)}`;
 
-      const btnText = document.createElement('span');
-      btnText.textContent = '開鏡觀覽';
+    // Clicking card container also navigates to detail page
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      window.location.href = detailUrl;
+    });
 
-      // Safe SVG Arrow Icon
-      link.innerHTML = `
-        <svg class="card-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
-      `;
-      link.prepend(btnText);
-      actionWrap.appendChild(link);
-    } else {
-      // Disabled button for placeholder exhibits (e.g. 003)
-      const disabledBtn = document.createElement('div');
-      disabledBtn.className = 'card-btn card-btn-disabled';
-      disabledBtn.setAttribute('aria-disabled', 'true');
+    const link = document.createElement('a');
+    link.className = 'card-btn card-btn-active';
+    link.href = detailUrl;
+    link.setAttribute('aria-label', `觀覽展件導讀：${cleanTitle}`);
 
-      const statusPill = document.createElement('span');
-      statusPill.className = 'card-status-pill';
-      statusPill.textContent = '展位籌備中';
+    const btnText = document.createElement('span');
+    btnText.textContent = '查看展件詳情';
 
-      const statusText = document.createElement('span');
-      statusText.textContent = '即將公開';
-
-      disabledBtn.appendChild(statusPill);
-      disabledBtn.appendChild(statusText);
-      actionWrap.appendChild(disabledBtn);
-    }
+    // Elegant forward arrow icon
+    link.innerHTML = `
+      <svg class="card-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    `;
+    link.prepend(btnText);
+    actionWrap.appendChild(link);
 
     content.appendChild(actionWrap);
     card.appendChild(content);
@@ -404,6 +394,12 @@
     hideError();
     state.isLoading = true;
     DOM.counterText.textContent = '連線策展庫...';
+
+    // 0. Use preloaded window.EXHIBITS_DATA if present (instant, avoids CORS on file://)
+    if (window.EXHIBITS_DATA && Array.isArray(window.EXHIBITS_DATA) && window.EXHIBITS_DATA.length > 0) {
+      handleLoadedData(window.EXHIBITS_DATA);
+      return;
+    }
 
     // 1. Try fetching external exhibits.json (standard behavior for http://, https://)
     try {
