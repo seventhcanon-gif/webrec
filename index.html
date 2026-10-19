@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0c16">
+  <meta name="description" content="文本覺醒——當故事走出書頁之後：元智大學中國語文學系 112 級實務製作成果展數位策展門戶。展示 12 組跨域數位人文與文化實踐展品。">
+  <title>文本覺醒｜數位策展門戶 Digital Exhibition Portal</title>
+  
+  <!-- Preconnect & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Decorative Lighting -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <div class="page-container">
+    <!-- Header Section -->
+    <header class="gallery-header">
+      <div class="brand-pill">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="brand-tag">CURATED DIGITAL PAVILION</span>
+        <span class="brand-divider" aria-hidden="true">/</span>
+        <span class="brand-sub">元智中語 112 級實務製作</span>
+      </div>
+      
+      <h1 class="gallery-title">
+        <span class="title-highlight">文本覺醒</span>
+        <span class="title-sub">當故事走出書頁之後</span>
+      </h1>
+      
+      <p class="gallery-intro">
+        打破文學僅存於紙本的藩籬，匯聚 12 組以 AI 技術、互動敘事、桌遊策略、數位繪本與文創轉譯為載體的數位人文展品。
+      </p>
+
+      <!-- Control Toolbar -->
+      <section class="control-bar" aria-label="展品搜尋與互動控制">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="搜尋展品標題、編號或關鍵字..." 
+            autocomplete="off"
+            aria-label="搜尋展品"
+          >
+          <button type="button" id="clearSearchBtn" class="clear-btn" aria-label="清除搜尋" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="toolbar-actions">
+          <button type="button" id="randomBtn" class="btn-action btn-surprise" title="隨機聚焦一件展品">
+            <span class="btn-icon" aria-hidden="true">🎲</span>
+            <span>隨機探索</span>
+          </button>
+
+          <div id="counterBadge" class="counter-badge" role="status" aria-live="polite">
+            <span class="counter-pulse"></span>
+            <span id="counterText">載入中...</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Error Alert Banner -->
+    <aside id="errorBanner" class="alert-banner alert-error" role="alert" hidden>
+      <div class="alert-content">
+        <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span id="errorMessage" class="alert-text">無法載入展覽資料，請確認網路連線或稍後再試。</span>
+      </div>
+      <button type="button" id="retryBtn" class="btn-retry">重新載入</button>
+    </aside>
+
+    <!-- Main Exhibition Grid -->
+    <main class="gallery-main">
+      <div id="exhibitGrid" class="exhibit-grid" role="region" aria-label="12項展品列表">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+
+      <!-- Empty State Feedback -->
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-icon-wrap" aria-hidden="true">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="M21 21l-4.35-4.35"></path>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+        <h2 class="empty-title">查無相符展品</h2>
+        <p class="empty-desc">找不到與關鍵字相符的策展項目，試試搜尋其他主題或號碼。</p>
+        <button type="button" id="resetSearchBtn" class="btn-action btn-reset">重置檢索條件</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gallery-footer">
+      <div class="footer-divider" aria-hidden="true"></div>
+      <div class="footer-inner">
+        <div class="footer-branding">
+          <p class="footer-title">元智大學中國語文學系 112 級實務製作成果展</p>
+          <p class="footer-subtitle">Text Awakening: When Stories Step Off the Page · 12-Exhibit Digital Pavilion</p>
+        </div>
+        <div class="footer-meta">
+          <span class="meta-item">零構建靜態架構</span>
+          <span class="meta-dot">·</span>
+          <span class="meta-item">決定性視覺生成</span>
+          <span class="meta-dot">·</span>
+          <span class="meta-item">防禦性安全強化</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Embedded Fallback Dataset for Direct file:// Protocol Execution -->
+  <script id="embeddedExhibits" type="application/json">
+  [
+    {
+      "title": "001 字裡行間的女性：女字旁漢字字源與女書文化研究",
+      "url": "https://grad-project-nushu.vercel.app/"
+    },
+    {
+      "title": "002 青史有眾生｜中語系畢業製作",
+      "url": "https://lighthearted-monstera-2747a5.netlify.app/"
+    },
+    {
+      "title": "003 新華風骨｜新中式文化美學與互動抽籤（展位籌備中）",
+      "url": ""
+    },
+    {
+      "title": "004 亞洲織夢｜Threads of Asia 傳統服飾文化探尋",
+      "url": "https://threads-of-asia.aa0966357068.chatgpt.site/#home"
+    },
+    {
+      "title": "005 鴻雁遺音 — 寫給時間的一封信",
+      "url": "https://flmj0ssz-staging.b12sites.com/"
+    },
+    {
+      "title": "006 城市裡的透明人｜當我們願意看見彼此",
+      "url": "https://see-hidden-city.base44.app"
+    },
+    {
+      "title": "007 墨陣爭鋒｜歷史集換式卡牌遊戲",
+      "url": "https://funny-lily-05e474.netlify.app/"
+    },
+    {
+      "title": "008 古韻映象館｜以詩入境，以影留韻",
+      "url": "https://guyunyingxiangguan-ae6ufk.webnode.page/"
+    },
+    {
+      "title": "009 王政殺機｜古典文學桌遊企劃",
+      "url": "https://wodewangzhan-n85wg1.webnode.page/"
+    },
+    {
+      "title": "010 東方神諭｜古典文學 × SDGs 塔羅桌遊",
+      "url": "https://marvelous-lamington-89589d.netlify.app"
+    },
+    {
+      "title": "011 「元」來如此：曲中有新／心聲",
+      "url": "https://reurl.cc/RRmvLg"
+    },
+    {
+      "title": "012 《紅樓夢求生指南》｜紅樓夢：一入賈府",
+      "url": "https://hongloumeng-ahsdey3c.manus.space"
+    }
+  ]
+  </script>
+
+  <!-- Application Logic -->
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Dependencies & Build
+node_modules/
+dist/
+.vercel
+
+# Environment
+.env*
+!.env.example
+
+# Logs
+*.log
