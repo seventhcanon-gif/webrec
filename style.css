@@ -105,6 +105,55 @@ body {
 }
 
 /* --------------------------------------------------------------------------
+   Paper & Mirror Background Textures (文人竹簾方格 ✕ 青海波水鏡紋樣)
+   -------------------------------------------------------------------------- */
+.page-bg-pattern {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+  background-image: 
+    /* 1. 細緻文人方格稿箋線條 (Manuscript Paper Grid) */
+    linear-gradient(to right, rgba(15, 23, 42, 0.038) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.038) 1px, transparent 1px),
+    /* 2. 東方古典青海漣漪水紋 (Classical Oriental Ripple Waves SVG) */
+    url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%230f172a' stroke-width='0.85' stroke-opacity='0.055'%3E%3Cpath d='M0 60 A30 30 0 0 1 60 60 M10 60 A20 20 0 0 1 50 60 M20 60 A10 10 0 0 1 40 60'/%3E%3Cpath d='M60 60 A30 30 0 0 1 120 60 M70 60 A20 20 0 0 1 110 60 M80 60 A10 10 0 0 1 100 60'/%3E%3Cpath d='M30 30 A30 30 0 0 1 90 30 M40 30 A20 20 0 0 1 80 30 M50 30 A10 10 0 0 1 70 30'/%3E%3Cpath d='M-30 30 A30 30 0 0 1 30 30 M-20 30 A20 20 0 0 1 20 30 M-10 30 A10 10 0 0 1 10 30'/%3E%3Cpath d='M90 30 A30 30 0 0 1 150 30 M100 30 A20 20 0 0 1 140 30 M110 30 A10 10 0 0 1 130 30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px, 40px 40px, 120px 60px;
+}
+
+/* 巨幅明鏡透光浮水印 (Large Watermark Emblems) */
+.bg-watermark {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.045;
+  color: #0f172a;
+  transition: transform 1s ease-out;
+}
+
+.watermark-seal-top {
+  top: -60px;
+  right: -60px;
+  width: 520px;
+  height: 520px;
+  animation: floatSlow 20s infinite alternate ease-in-out;
+}
+
+.watermark-seal-bottom {
+  bottom: -90px;
+  left: -80px;
+  width: 560px;
+  height: 560px;
+  animation: floatSlow 24s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatSlow {
+  0% { transform: rotate(0deg) translate(0, 0); }
+  100% { transform: rotate(6deg) translate(15px, 12px); }
+}
+
+/* --------------------------------------------------------------------------
    Container & Layout
    -------------------------------------------------------------------------- */
 .page-container {

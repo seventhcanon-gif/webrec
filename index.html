@@ -16,9 +16,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Ambient Decorative Lighting -->
+  <!-- Ambient Decorative Lighting & Watermark Patterns -->
   <div class="ambient-glow glow-top" aria-hidden="true"></div>
   <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+  <div class="page-bg-pattern" aria-hidden="true"></div>
+  <div class="bg-watermark watermark-seal-top" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+      <circle cx="100" cy="100" r="95" stroke-dasharray="3 3"/>
+      <circle cx="100" cy="100" r="80"/>
+      <circle cx="100" cy="100" r="60"/>
+      <circle cx="100" cy="100" r="35"/>
+      <polygon points="100,20 180,100 100,180 20,100"/>
+      <polygon points="100,40 160,100 100,160 40,100"/>
+    </svg>
+  </div>
+  <div class="bg-watermark watermark-seal-bottom" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+      <circle cx="100" cy="100" r="92"/>
+      <circle cx="100" cy="100" r="70" stroke-dasharray="4 4"/>
+      <circle cx="100" cy="100" r="48"/>
+      <line x1="100" y1="5" x2="100" y2="195"/>
+      <line x1="5" y1="100" x2="195" y2="100"/>
+      <line x1="33" y1="33" x2="167" y2="167"/>
+      <line x1="33" y1="167" x2="167" y2="33"/>
+    </svg>
+  </div>
 
   <div class="page-container">
     <!-- Header Section -->
