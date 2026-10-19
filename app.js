@@ -103,29 +103,37 @@
     return Math.abs(hash);
   }
 
+  // 12 Bespoke Oriental Inks & Mirror-Paper Duotones
+  const ORIENTAL_INK_PALETTES = [
+    { hue1: 212, hue2: 198, angle: 135 }, // 玄青水鏡 (Deep Ink & Water Mirror)
+    { hue1: 348, hue2: 12,  angle: 145 }, // 朱砂丹印 (Cinnabar & Red Seal)
+    { hue1: 158, hue2: 178, angle: 125 }, // 竹青墨韻 (Bamboo Green & Ink)
+    { hue1: 36,  hue2: 24,  angle: 155 }, // 藤黃古紙 (Rattan Gold & Washi)
+    { hue1: 268, hue2: 295, angle: 130 }, // 紫檀鏡影 (Rosewood Mirror)
+    { hue1: 188, hue2: 208, angle: 140 }, // 天青冰裂 (Celadon Glaze)
+    { hue1: 16,  hue2: 38,  angle: 150 }, // 岱赭簡牘 (Ocher Bamboo Slips)
+    { hue1: 232, hue2: 255, angle: 120 }, // 蒼石墨光 (Slate Ink Sheen)
+    { hue1: 142, hue2: 168, angle: 160 }, // 碧潭微瀾 (Jade Ripple)
+    { hue1: 332, hue2: 358, angle: 135 }, // 胭脂落紙 (Rouge on Paper)
+    { hue1: 42,  hue2: 65,  angle: 145 }, // 金箔折光 (Gold Leaf Refraction)
+    { hue1: 205, hue2: 225, angle: 125 }  // 月白水光 (Moonlit White & Mirror)
+  ];
+
   /**
-   * Derives visual identity tokens from a project title.
-   * Returns harmonious hues, rotation angles, and an abstract graphic template.
+   * Derives visual identity tokens from a project title using Oriental Ink harmonies.
    * @param {string} title 
    * @param {number} index 
    */
   function getVisualIdentity(title, index) {
     const hash = hashString(title + (index + 1));
-    
-    // Spread hues across high-chroma, aesthetic ranges
-    const hue1 = (hash * 37) % 360;
-    const hueOffset = 35 + (hash % 50);
-    const hue2 = (hue1 + hueOffset) % 360;
-    const angle = 110 + (hash % 85);
-    const graphicIndex = hash % ABSTRACT_GRAPHICS.length;
-
-    // Zero-padded display index (e.g. "01", "12")
+    const palette = ORIENTAL_INK_PALETTES[hash % ORIENTAL_INK_PALETTES.length];
+    const graphicIndex = (hash + index) % ABSTRACT_GRAPHICS.length;
     const formattedIndex = String(index + 1).padStart(2, '0');
 
     return {
-      hue1,
-      hue2,
-      angle: `${angle}deg`,
+      hue1: palette.hue1,
+      hue2: palette.hue2,
+      angle: `${palette.angle}deg`,
       graphic: ABSTRACT_GRAPHICS[graphicIndex],
       formattedIndex
     };
@@ -211,7 +219,7 @@
       </svg>
     `;
     const noteText = document.createElement('span');
-    noteText.textContent = hasValidUrl ? '數位實作 · 外部展示展區' : '展位保留 · 籌備中';
+    noteText.textContent = hasValidUrl ? '以紙載文 · 鏡像互動展區' : '展位保留 · 籌備中';
     metaNote.appendChild(noteText);
     titleWrap.appendChild(metaNote);
 
@@ -230,7 +238,7 @@
       link.setAttribute('aria-label', `造訪展品：${cleanTitle}（新視窗開啟）`);
 
       const btnText = document.createElement('span');
-      btnText.textContent = '進入展覽空間';
+      btnText.textContent = '開鏡觀覽';
 
       // Safe SVG Arrow Icon
       link.innerHTML = `
